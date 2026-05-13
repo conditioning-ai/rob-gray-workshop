@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rob Gray Ireland – Priority Interest Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a2a;
+    --forest-mid: #254d38;
+    --forest-light: #2f6347;
+    --gold: #c9a84c;
+    --gold-light: #e0c07a;
+    --gold-pale: #f5e9c8;
+    --cream: #faf6ee;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --white: #ffffff;
+    --border: #ddd8ce;
+    --focus: #c9a84c;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+font-family: ‘Poppins’, sans-serif;
+background: #f0ece3;
+min-height: 100vh;
+padding: 40px 16px 80px;
+}
+
+.wrapper {
+max-width: 660px;
+margin: 0 auto;
+}
+
+/* ── HEADER CARD ── */
+.header-card {
+background: var(–forest);
+border-radius: 16px 16px 0 0;
+padding: 48px 40px 40px;
+position: relative;
+overflow: hidden;
+}
+.header-card::before {
+content: ‘’;
+position: absolute;
+top: -80px; right: -80px;
+width: 260px; height: 260px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+pointer-events: none;
+}
+.brand-line {
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 4px;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.brand-line::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: rgba(201,168,76,0.3);
+}
+.header-card h1 {
+font-family: ‘Lora’, serif;
+font-size: clamp(1.6rem, 4vw, 2.2rem);
+font-weight: 700;
+color: var(–white);
+line-height: 1.25;
+margin-bottom: 16px;
+}
+.header-card h1 span { color: var(–gold); }
+.header-card p {
+font-size: 0.9rem;
+color: rgba(255,255,255,0.72);
+line-height: 1.7;
+max-width: 520px;
+}
+.scarcity-bar {
+margin-top: 28px;
+background: rgba(255,255,255,0.07);
+border: 1px solid rgba(201,168,76,0.3);
+border-radius: 8px;
+padding: 14px 18px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.scarcity-icon {
+width: 32px; height: 32px;
+background: rgba(201,168,76,0.15);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+font-size: 14px;
+flex-shrink: 0;
+}
+.scarcity-text {
+font-size: 0.82rem;
+color: rgba(255,255,255,0.8);
+line-height: 1.5;
+}
+.scarcity-text strong { color: var(–gold-light); }
+
+/* ── FORM CARD ── */
+.form-card {
+background: var(–white);
+padding: 0 40px 40px;
+border-radius: 0 0 16px 16px;
+box-shadow: 0 8px 40px rgba(26,58,42,0.12);
+}
+
+/* ── SECTION DIVIDER ── */
+.section-divider {
+border: none;
+padding: 32px 0 8px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.section-divider-label {
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(–gold);
+white-space: nowrap;
+}
+.section-divider-line {
+flex: 1;
+height: 1px;
+background: var(–border);
+}
+
+/* ── QUESTION ── */
+.question {
+margin-bottom: 28px;
+}
+.question-header {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+margin-bottom: 8px;
+}
+.q-num {
+width: 22px; height: 22px;
+background: var(–forest);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+font-size: 10px;
+font-weight: 700;
+color: var(–gold);
+flex-shrink: 0;
+margin-top: 2px;
+}
+label {
+font-size: 0.9rem;
+font-weight: 600;
+color: var(–text);
+line-height: 1.4;
+display: block;
+}
+.required { color: var(–gold); margin-left: 2px; }
+.hint {
+font-size: 0.78rem;
+color: var(–muted);
+margin-top: 4px;
+margin-left: 32px;
+line-height: 1.5;
+font-style: italic;
+}
+
+/* ── INPUTS ── */
+input[type=“text”],
+input[type=“email”],
+textarea,
+select {
+width: 100%;
+font-family: ‘Poppins’, sans-serif;
+font-size: 0.88rem;
+color: var(–text);
+background: #faf8f4;
+border: 1.5px solid var(–border);
+border-radius: 8px;
+padding: 12px 14px;
+margin-top: 4px;
+outline: none;
+transition: border-color 0.2s, box-shadow 0.2s;
+appearance: none;
+}
+input:focus, textarea:focus, select:focus {
+border-color: var(–gold);
+box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+background: #fff;
+}
+textarea { resize: vertical; min-height: 90px; }
+
+/* ── RADIO / CHECKBOX OPTIONS ── */
+.options { margin-top: 8px; display: flex; flex-direction: column; gap: 8px; }
+.option {
+display: flex;
+align-items: flex-start;
+gap: 12px;
+padding: 12px 14px;
+border: 1.5px solid var(–border);
+border-radius: 8px;
+cursor: pointer;
+transition: border-color 0.2s, background 0.2s;
+background: #faf8f4;
+}
+.option:hover { border-color: var(–gold); background: #fffcf4; }
+.option input[type=“radio”],
+.option input[type=“checkbox”] {
+width: 16px; height: 16px;
+margin: 2px 0 0;
+accent-color: var(–forest);
+flex-shrink: 0;
+cursor: pointer;
+padding: 0;
+border: none;
+background: none;
+box-shadow: none;
+}
+.option input:focus { box-shadow: none; border: none; }
+.option-text {
+font-size: 0.87rem;
+color: var(–text);
+line-height: 1.4;
+}
+.option-sub {
+font-size: 0.76rem;
+color: var(–muted);
+margin-top: 2px;
+font-style: italic;
+}
+.option.selected {
+border-color: var(–forest);
+background: rgba(26,58,42,0.04);
+}
+
+/* ── SCALE ── */
+.scale-wrap { margin-top: 8px; }
+.scale-labels {
+display: flex;
+justify-content: space-between;
+font-size: 0.72rem;
+color: var(–muted);
+margin-bottom: 8px;
+}
+.scale-options {
+display: flex;
+gap: 8px;
+}
+.scale-option {
+flex: 1;
+text-align: center;
+padding: 10px 4px;
+border: 1.5px solid var(–border);
+border-radius: 8px;
+font-size: 0.85rem;
+font-weight: 600;
+color: var(–muted);
+cursor: pointer;
+background: #faf8f4;
+transition: all 0.15s;
+}
+.scale-option:hover { border-color: var(–gold); color: var(–forest); background: #fffcf4; }
+.scale-option.active { border-color: var(–forest); background: var(–forest); color: var(–gold); }
+
+/* ── RATIONALE NOTES (for Kev’s reference — hidden on real form) ── */
+.rationale {
+margin-top: 8px;
+margin-left: 32px;
+background: linear-gradient(135deg, #f5e9c8, #eddcaa);
+border-left: 3px solid var(–gold);
+border-radius: 0 6px 6px 0;
+padding: 10px 14px;
+font-size: 0.75rem;
+color: var(–forest-mid);
+line-height: 1.6;
+}
+.rationale strong { font-weight: 700; color: var(–forest); }
+
+/* ── SUBMIT ── */
+.submit-section {
+padding-top: 16px;
+border-top: 1px solid var(–border);
+margin-top: 8px;
+}
+.submit-note {
+font-size: 0.8rem;
+color: var(–muted);
+margin-bottom: 16px;
+line-height: 1.6;
+font-style: italic;
+}
+.submit-btn {
+width: 100%;
+background: var(–forest);
+color: var(–white);
+border: none;
+border-radius: 10px;
+padding: 16px 24px;
+font-family: ‘Poppins’, sans-serif;
+font-size: 0.95rem;
+font-weight: 600;
+cursor: pointer;
+transition: background 0.2s, transform 0.1s;
+letter-spacing: 0.5px;
+}
+.submit-btn:hover { background: var(–forest-mid); transform: translateY(-1px); }
+.submit-btn:active { transform: translateY(0); }
+.submit-sub {
+text-align: center;
+font-size: 0.75rem;
+color: var(–muted);
+margin-top: 12px;
+}
+
+/* ── USAGE GUIDE ── */
+.guide-card {
+background: var(–forest);
+border-radius: 12px;
+padding: 28px 32px;
+margin-top: 32px;
+color: rgba(255,255,255,0.85);
+}
+.guide-card h3 {
+font-family: ‘Lora’, serif;
+font-size: 1.05rem;
+color: var(–gold);
+margin-bottom: 16px;
+}
+.guide-card p {
+font-size: 0.83rem;
+line-height: 1.7;
+margin-bottom: 10px;
+}
+.guide-card p:last-child { margin-bottom: 0; }
+.guide-card strong { color: var(–gold-light); }
+
+/* ── LEGEND ── */
+.legend {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 24px;
+background: #fffcf4;
+border: 1px solid var(–border);
+border-radius: 8px;
+padding: 12px 16px;
+font-size: 0.78rem;
+color: var(–muted);
+}
+.legend-dot {
+width: 10px; height: 10px;
+background: linear-gradient(135deg, #f5e9c8, #c9a84c);
+border-radius: 2px;
+flex-shrink: 0;
+}
+
+@media (max-width: 520px) {
+.header-card, .form-card { padding-left: 22px; padding-right: 22px; }
+.scale-option { padding: 8px 2px; font-size: 0.8rem; }
+}
+</style>
+
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+
+  <div class="header-card">
+    <div class="brand-line">Design the Game</div>
+    <h1>Rob Gray is Coming<br>to <span>Ireland</span> — Are You In?</h1>
+    <p>We're bringing one of the world's leading skill acquisition researchers and practitioners to Ireland for an exclusive one-day working session. Before we open booking, we want to make sure the right people are in the room.</p>
+    <div class="scarcity-bar">
+      <div class="scarcity-icon">🔒</div>
+      <p class="scarcity-text"><strong>This form is invitation-only.</strong> We're keeping the event to a maximum of 35 people. Priority places go to those who register interest here before we go public.</p>
+    </div>
+  </div>
+
+  <!-- FORM -->
+
+  <div class="form-card">
+    <div class="legend">
+      <div class="legend-dot"></div>
+      <span>Gold-highlighted boxes below are <strong>your planning notes</strong> — strategic rationale for each question. These won't appear in the real Google Form.</span>
+    </div>
+
+```
+<!-- SECTION: ABOUT YOU -->
+<div class="section-divider">
+  <span class="section-divider-label">About You</span>
+  <div class="section-divider-line"></div>
+</div>
+
+<!-- Q1 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">1</div>
+    <label>Your name <span class="required">*</span></label>
+  </div>
+  <input type="text" placeholder="First and last name">
+  <div class="rationale"><strong>Purpose:</strong> Makes this feel personal, not anonymous. You'll use names when following up individually — "Hey Ciarán, saw you registered interest…" is far more effective than a broadcast email.</div>
+</div>
+
+<!-- Q2 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">2</div>
+    <label>Email address <span class="required">*</span></label>
+  </div>
+  <input type="email" placeholder="your@email.com">
+  <p class="hint">We'll use this to send you priority booking access before we open publicly.</p>
+  <div class="rationale"><strong>Purpose:</strong> This is your actual warm leads list. Every email captured here is someone who has actively raised their hand — far more valuable than followers. The hint reinforces that they're getting something by being here.</div>
+</div>
+
+<!-- Q3 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">3</div>
+    <label>What best describes your role? <span class="required">*</span></label>
+  </div>
+  <div class="options">
+    <label class="option"><input type="radio" name="role"><div class="option-text">Gaelic Football / Hurling Coach<div class="option-sub">Club, county, school, or academy level</div></div></label>
+    <label class="option"><input type="radio" name="role"><div class="option-text">Physiotherapist / Rehab Practitioner<div class="option-sub">Sports physio, athletic therapist, or similar</div></div></label>
+    <label class="option"><input type="radio" name="role"><div class="option-text">Strength & Conditioning Coach<div class="option-sub">Working with GAA or other field sports</div></div></label>
+    <label class="option"><input type="radio" name="role"><div class="option-text">Multiple roles<div class="option-sub">E.g. coaching and S&C, or coaching and rehab</div></div></label>
+    <label class="option"><input type="radio" name="role"><div class="option-text">Other (please specify below)</div></label>
+  </div>
+  <div class="rationale"><strong>Purpose:</strong> Critical segmentation data. Tells you whether you're running three tracks or whether one audience is dominating. Also guides your follow-up — you can tailor the message you send to each group. If 80% are coaches and 5% are physios, you know where to push harder in your content.</div>
+</div>
+
+<!-- Q4 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">4</div>
+    <label>How many years have you been working in your current role?</label>
+  </div>
+  <div class="options">
+    <label class="option"><input type="radio" name="exp"><div class="option-text">0–2 years</div></label>
+    <label class="option"><input type="radio" name="exp"><div class="option-text">3–7 years</div></label>
+    <label class="option"><input type="radio" name="exp"><div class="option-text">8–15 years</div></label>
+    <label class="option"><input type="radio" name="exp"><div class="option-text">15+ years</div></label>
+  </div>
+  <div class="rationale"><strong>Purpose:</strong> Tells you the profile of who's interested — emerging practitioners vs experienced ones. Experienced coaches tend to convert more reliably on premium events. Also shapes how you pitch content difficulty level (not beginner theory).</div>
+</div>
+
+<!-- SECTION: THE EVENT -->
+<div class="section-divider">
+  <span class="section-divider-label">The Event</span>
+  <div class="section-divider-line"></div>
+</div>
+
+<!-- Q5 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">5</div>
+    <label>Have you come across Rob Gray or the Perception-Action podcast before?</label>
+  </div>
+  <div class="options">
+    <label class="option"><input type="radio" name="rob"><div class="option-text">Yes — I follow his work regularly</div></label>
+    <label class="option"><input type="radio" name="rob"><div class="option-text">I've heard of him but don't know his work well</div></label>
+    <label class="option"><input type="radio" name="rob"><div class="option-text">I found out about this through someone else — new to me</div></label>
+  </div>
+  <div class="rationale"><strong>Purpose:</strong> Tells you how much warm-up work your content campaign needs to do before tickets go on sale. If most say "never heard of him," you need more Rob-seeding content before the early bird opens. If most say "follow him regularly," you can move faster. Also validates whether your network is the right target market.</div>
+</div>
+
+<!-- Q6 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">6</div>
+    <label>Which of the following topics would be most valuable to you? <span class="required">*</span><br><span style="font-weight:400;font-size:0.8rem;color:var(--muted)">Select all that apply.</span></label>
+  </div>
+  <div class="options">
+    <label class="option"><input type="checkbox"><div class="option-text">Designing practice that actually transfers to match performance<div class="option-sub">Constraints-led approach, representative design, affordances</div></div></label>
+    <label class="option"><input type="checkbox"><div class="option-text">Return to play through an ecological dynamics lens<div class="option-sub">Rebuilding skill, decision-making and confidence post-injury</div></div></label>
+    <label class="option"><input type="checkbox"><div class="option-text">Making S&C and gym work transfer to on-field performance<div class="option-sub">Bridging athletic development and skill acquisition</div></div></label>
+    <label class="option"><input type="checkbox"><div class="option-text">The science behind skill acquisition — what the research actually says<div class="option-sub">Ecological dynamics, perception-action coupling, motor learning</div></div></label>
+    <label class="option"><input type="checkbox"><div class="option-text">Working across disciplines — how coaches, physios and S&C can align</div></label>
+  </div>
+  <div class="rationale"><strong>Purpose:</strong> Shapes the actual day's programme. If the overwhelming answer is "practice design," you know that's the core and everything else supports it. Also gives you content hooks — if lots tick RTP, run a physio-specific post in week 9. The multi-disciplinary option being ticked a lot is a signal that the cross-track angle is genuinely appealing.</div>
+</div>
+
+<!-- Q7 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">7</div>
+    <label>How likely are you to attend if a place is available? <span class="required">*</span></label>
+  </div>
+  <div class="options">
+    <label class="option"><input type="radio" name="intent"><div class="option-text">Definitely — I'm in<div class="option-sub">I'll book as soon as it opens</div></div></label>
+    <label class="option"><input type="radio" name="intent"><div class="option-text">Very likely<div class="option-sub">I need to check my schedule but I'll prioritise this</div></div></label>
+    <label class="option"><input type="radio" name="intent"><div class="option-text">Possibly<div class="option-sub">Depends on timing, cost, and what's covered</div></div></label>
+    <label class="option"><input type="radio" name="intent"><div class="option-text">Just finding out more for now</div></label>
+  </div>
+  <div class="rationale"><strong>Purpose:</strong> Your most important data point. Count the "definitely" and "very likely" responses against your 35-seat cap. If you get 30 strong responses from a private form of 60–70 people, you know the event will sell. Also gives you a realistic read before you commit costs. Send your personal follow-up DMs to "definitely" people first — they're your social proof buyers who'll screenshot "I'm booked" and share it.</div>
+</div>
+
+<!-- Q8 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">8</div>
+    <label>Are you more likely to be coming as an individual or as part of a group?</label>
+  </div>
+  <div class="options">
+    <label class="option"><input type="radio" name="group"><div class="option-text">Individual — just me</div></label>
+    <label class="option"><input type="radio" name="group"><div class="option-text">With 1–2 others from my club or organisation</div></label>
+    <label class="option"><input type="radio" name="group"><div class="option-text">As part of a county setup or larger group (3+)</div></label>
+    <label class="option"><input type="radio" name="group"><div class="option-text">Not sure yet</div></label>
+  </div>
+  <div class="rationale"><strong>Purpose:</strong> Helps you calibrate the group ticket offer. If a good number say "county setup or 3+," it's worth reaching out to those people directly about a group rate before you announce it publicly. Also signals whether you'll fill seats through individual sales or a few large group purchases.</div>
+</div>
+
+<!-- SECTION: PRICING -->
+<div class="section-divider">
+  <span class="section-divider-label">Pricing</span>
+  <div class="section-divider-line"></div>
+</div>
+
+<!-- Q9 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">9</div>
+    <label>For a full-day working session with Rob Gray, what price range feels right to you?</label>
+  </div>
+  <p class="hint">This is for planning purposes only — no price is confirmed yet.</p>
+  <div class="options">
+    <label class="option"><input type="radio" name="price"><div class="option-text">Up to €100</div></label>
+    <label class="option"><input type="radio" name="price"><div class="option-text">€100–€149</div></label>
+    <label class="option"><input type="radio" name="price"><div class="option-text">€150–€199</div></label>
+    <label class="option"><input type="radio" name="price"><div class="option-text">€200–€249</div></label>
+    <label class="option"><input type="radio" name="price"><div class="option-text">€250+ — for something this rare, I'd pay what it costs</div></label>
+  </div>
+  <div class="rationale"><strong>Purpose:</strong> Direct pricing intelligence. If the majority cluster around €150–€199, you're confirmed at €195. If more land at €100–€149, you may need to work harder on value framing before the early bird, or lean more heavily on the early bird price. Note: people typically under-report willingness to pay slightly — anyone ticking €150–€199 will likely buy at €195.</div>
+</div>
+
+<!-- Q10 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">10</div>
+    <label>Would employer / county board / club funding affect your decision to attend?</label>
+  </div>
+  <div class="options">
+    <label class="option"><input type="radio" name="funding"><div class="option-text">No — I'd pay personally and that's fine</div></label>
+    <label class="option"><input type="radio" name="funding"><div class="option-text">I'd pay personally but employer funding would make it easier</div></label>
+    <label class="option"><input type="radio" name="funding"><div class="option-text">I would likely need employer or club funding to attend</div></label>
+    <label class="option"><input type="radio" name="funding"><div class="option-text">My organisation would likely fund this as CPD</div></label>
+  </div>
+  <div class="rationale"><strong>Purpose:</strong> Shapes your B2B outreach strategy. If a significant chunk say they need org funding, it's worth drafting a "pitch to your county board" template they can use — removes friction to purchase. It also tells you how much of your sales effort should go to organisations vs individuals.</div>
+</div>
+
+<!-- SECTION: OPEN -->
+<div class="section-divider">
+  <span class="section-divider-label">One Last Thing</span>
+  <div class="section-divider-line"></div>
+</div>
+
+<!-- Q11 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">11</div>
+    <label>What's the one thing you'd most want to leave the day having figured out?</label>
+  </div>
+  <p class="hint">Be as specific as you like. This genuinely shapes what we cover.</p>
+  <textarea placeholder="e.g. 'How to design small-sided games that actually build decision-making under pressure...'"></textarea>
+  <div class="rationale"><strong>Purpose:</strong> Gold content data. These answers will hand you your best social media hooks verbatim — you'll read these and immediately have 10 carousel post ideas. They also tell you what language your audience uses to describe their problems (use their words, not academic language, in your promotional copy). Share a few anonymised answers with Rob before the event to shape the agenda.</div>
+</div>
+
+<!-- Q12 -->
+<div class="question">
+  <div class="question-header">
+    <div class="q-num">12</div>
+    <label>Is there anyone you'd recommend we reach out to who'd benefit from this?</label>
+  </div>
+  <p class="hint">Optional. A name, a club, a county setup — anyone you think should know about this.</p>
+  <input type="text" placeholder="Name / club / county board / organisation">
+  <div class="rationale"><strong>Purpose:</strong> Referral engine built into the form. Every warm lead you get here is worth more than any Instagram follower. Frame it as "who should know about this" rather than "refer a friend" — feels more professional and less salesy. These referrals often produce your group buyers.</div>
+</div>
+
+<!-- SUBMIT -->
+<div class="submit-section">
+  <p class="submit-note">By submitting this form you're not committing to anything — you're simply letting us know you're interested. We'll be in touch personally with priority booking details before we open publicly.</p>
+  <button class="submit-btn">Register My Interest →</button>
+  <p class="submit-sub">Your details won't be shared. This event will have a maximum of 35 attendees.</p>
+</div>
+```
+
+  </div>
+
+  <!-- USAGE GUIDE -->
+
+  <div class="guide-card">
+    <h3>How to Use This in Google Forms</h3>
+    <p>Copy each question above directly into a new Google Form. Set your form theme to match (dark green header if available, or leave default — the content does the work). Make sure you:</p>
+    <p><strong>1. Set the form to "collect email addresses"</strong> automatically via Google Forms settings — this captures emails even if someone doesn't fill in Q2, and gives you a clean export.</p>
+    <p><strong>2. Send privately, not publicly.</strong> Share the link only via direct DM or personal message — never post it publicly. The exclusivity framing in the header only works if it genuinely is private. Say something like: <em>"Sharing this with a small group before we go public — thought of you specifically."</em></p>
+    <p><strong>3. Watch Q7 (intent) closely.</strong> Count "Definitely" + "Very Likely" responses in real time. Once you hit 25+ strong responses from your private list, you have strong evidence the event will sell. That's when you open early bird.</p>
+    <p><strong>4. Use Q11 answers as content.</strong> Export the open text responses — they are your copywriting brief. The exact phrases people use to describe their pain are the phrases you should use in your promotional posts.</p>
+    <p><strong>5. Follow up personally within 48 hours.</strong> Anyone who answers "Definitely" gets a personal DM or message from you — before any ticket link exists. That personal contact is what converts interest into a sale.</p>
+  </div>
+
+</div>
+
+<script>
+  // Make options feel interactive
+  document.querySelectorAll('.option').forEach(option => {
+    option.addEventListener('click', function() {
+      const input = this.querySelector('input');
+      if (input.type === 'radio') {
+        const name = input.name;
+        document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+          r.closest('.option').classList.remove('selected');
+        });
+        this.classList.add('selected');
+      } else {
+        this.classList.toggle('selected');
+      }
+    });
+  });
+
+  // Scale buttons
+  document.querySelectorAll('.scale-option').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.classList.toggle('active');
+    });
+  });
+</script>
+
+</body>
+</html>
