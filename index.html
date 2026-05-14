@@ -274,20 +274,6 @@
   .scale-option:hover { border-color: var(--gold); color: var(--forest); background: #fffcf4; }
   .scale-option.active { border-color: var(--forest); background: var(--forest); color: var(--gold); }
 
-  /* ── RATIONALE NOTES (for Kev's reference — hidden on real form) ── */
-  .rationale {
-    margin-top: 8px;
-    margin-left: 32px;
-    background: linear-gradient(135deg, #f5e9c8, #eddcaa);
-    border-left: 3px solid var(--gold);
-    border-radius: 0 6px 6px 0;
-    padding: 10px 14px;
-    font-size: 0.75rem;
-    color: var(--forest-mid);
-    line-height: 1.6;
-  }
-  .rationale strong { font-weight: 700; color: var(--forest); }
-
   /* ── SUBMIT ── */
   .submit-section {
     padding-top: 16px;
@@ -324,47 +310,7 @@
     margin-top: 12px;
   }
 
-  /* ── USAGE GUIDE ── */
-  .guide-card {
-    background: var(--forest);
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin-top: 32px;
-    color: rgba(255,255,255,0.85);
-  }
-  .guide-card h3 {
-    font-family: 'Lora', serif;
-    font-size: 1.05rem;
-    color: var(--gold);
-    margin-bottom: 16px;
-  }
-  .guide-card p {
-    font-size: 0.83rem;
-    line-height: 1.7;
-    margin-bottom: 10px;
-  }
-  .guide-card p:last-child { margin-bottom: 0; }
-  .guide-card strong { color: var(--gold-light); }
-
   /* ── LEGEND ── */
-  .legend {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 24px;
-    background: #fffcf4;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 0.78rem;
-    color: var(--muted);
-  }
-  .legend-dot {
-    width: 10px; height: 10px;
-    background: linear-gradient(135deg, #f5e9c8, #c9a84c);
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
 
   @media (max-width: 520px) {
     .header-card, .form-card { padding-left: 22px; padding-right: 22px; }
@@ -388,9 +334,6 @@
 
   <!-- FORM -->
   <div class="form-card">
-    <div class="legend">
-      <div class="legend-dot"></div>
-      <span>Gold-highlighted boxes below are <strong>your planning notes</strong> — strategic rationale for each question. These won't appear in the real Google Form.</span>
     </div>
 
     <!-- SECTION: ABOUT YOU -->
@@ -406,7 +349,6 @@
         <label>Your name <span class="required">*</span></label>
       </div>
       <input type="text" placeholder="First and last name">
-      <div class="rationale"><strong>Purpose:</strong> Makes this feel personal, not anonymous. You'll use names when following up individually — "Hey Ciarán, saw you registered interest…" is far more effective than a broadcast email.</div>
     </div>
 
     <!-- Q2 -->
@@ -417,7 +359,6 @@
       </div>
       <input type="email" placeholder="your@email.com">
       <p class="hint">We'll use this to send you priority booking access before we open publicly.</p>
-      <div class="rationale"><strong>Purpose:</strong> This is your actual warm leads list. Every email captured here is someone who has actively raised their hand — far more valuable than followers. The hint reinforces that they're getting something by being here.</div>
     </div>
 
     <!-- Q3 -->
@@ -433,7 +374,6 @@
         <label class="option"><input type="radio" name="role"><div class="option-text">Multiple roles<div class="option-sub">E.g. coaching and S&C, or coaching and rehab</div></div></label>
         <label class="option"><input type="radio" name="role"><div class="option-text">Other (please specify below)</div></label>
       </div>
-      <div class="rationale"><strong>Purpose:</strong> Critical segmentation data. Tells you whether you're running three tracks or whether one audience is dominating. Also guides your follow-up — you can tailor the message you send to each group. If 80% are coaches and 5% are physios, you know where to push harder in your content.</div>
     </div>
 
     <!-- Q4 -->
@@ -448,7 +388,6 @@
         <label class="option"><input type="radio" name="exp"><div class="option-text">8–15 years</div></label>
         <label class="option"><input type="radio" name="exp"><div class="option-text">15+ years</div></label>
       </div>
-      <div class="rationale"><strong>Purpose:</strong> Tells you the profile of who's interested — emerging practitioners vs experienced ones. Experienced coaches tend to convert more reliably on premium events. Also shapes how you pitch content difficulty level (not beginner theory).</div>
     </div>
 
     <!-- SECTION: THE EVENT -->
@@ -468,7 +407,6 @@
         <label class="option"><input type="radio" name="rob"><div class="option-text">I've heard of him but don't know his work well</div></label>
         <label class="option"><input type="radio" name="rob"><div class="option-text">I found out about this through someone else — new to me</div></label>
       </div>
-      <div class="rationale"><strong>Purpose:</strong> Tells you how much warm-up work your content campaign needs to do before tickets go on sale. If most say "never heard of him," you need more Rob-seeding content before the early bird opens. If most say "follow him regularly," you can move faster. Also validates whether your network is the right target market.</div>
     </div>
 
     <!-- Q6 -->
@@ -484,7 +422,6 @@
         <label class="option"><input type="checkbox"><div class="option-text">The science behind skill acquisition — what the research actually says<div class="option-sub">Ecological dynamics, perception-action coupling, motor learning</div></div></label>
         <label class="option"><input type="checkbox"><div class="option-text">Working across disciplines — how coaches, physios and S&C can align</div></label>
       </div>
-      <div class="rationale"><strong>Purpose:</strong> Shapes the actual day's programme. If the overwhelming answer is "practice design," you know that's the core and everything else supports it. Also gives you content hooks — if lots tick RTP, run a physio-specific post in week 9. The multi-disciplinary option being ticked a lot is a signal that the cross-track angle is genuinely appealing.</div>
     </div>
 
     <!-- Q7 -->
@@ -499,7 +436,6 @@
         <label class="option"><input type="radio" name="intent"><div class="option-text">Possibly<div class="option-sub">Depends on timing, cost, and what's covered</div></div></label>
         <label class="option"><input type="radio" name="intent"><div class="option-text">Just finding out more for now</div></label>
       </div>
-      <div class="rationale"><strong>Purpose:</strong> Your most important data point. Count the "definitely" and "very likely" responses against your 35-seat cap. If you get 30 strong responses from a private form of 60–70 people, you know the event will sell. Also gives you a realistic read before you commit costs. Send your personal follow-up DMs to "definitely" people first — they're your social proof buyers who'll screenshot "I'm booked" and share it.</div>
     </div>
 
     <!-- Q8 -->
@@ -514,7 +450,6 @@
         <label class="option"><input type="radio" name="group"><div class="option-text">As part of a county setup or larger group (3+)</div></label>
         <label class="option"><input type="radio" name="group"><div class="option-text">Not sure yet</div></label>
       </div>
-      <div class="rationale"><strong>Purpose:</strong> Helps you calibrate the group ticket offer. If a good number say "county setup or 3+," it's worth reaching out to those people directly about a group rate before you announce it publicly. Also signals whether you'll fill seats through individual sales or a few large group purchases.</div>
     </div>
 
     <!-- SECTION: PRICING -->
@@ -537,7 +472,6 @@
         <label class="option"><input type="radio" name="price"><div class="option-text">€200–€249</div></label>
         <label class="option"><input type="radio" name="price"><div class="option-text">€250+ — for something this rare, I'd pay what it costs</div></label>
       </div>
-      <div class="rationale"><strong>Purpose:</strong> Direct pricing intelligence. If the majority cluster around €150–€199, you're confirmed at €195. If more land at €100–€149, you may need to work harder on value framing before the early bird, or lean more heavily on the early bird price. Note: people typically under-report willingness to pay slightly — anyone ticking €150–€199 will likely buy at €195.</div>
     </div>
 
     <!-- Q10 -->
@@ -552,7 +486,6 @@
         <label class="option"><input type="radio" name="funding"><div class="option-text">I would likely need employer or club funding to attend</div></label>
         <label class="option"><input type="radio" name="funding"><div class="option-text">My organisation would likely fund this as CPD</div></label>
       </div>
-      <div class="rationale"><strong>Purpose:</strong> Shapes your B2B outreach strategy. If a significant chunk say they need org funding, it's worth drafting a "pitch to your county board" template they can use — removes friction to purchase. It also tells you how much of your sales effort should go to organisations vs individuals.</div>
     </div>
 
     <!-- SECTION: OPEN -->
@@ -569,7 +502,6 @@
       </div>
       <p class="hint">Be as specific as you like. This genuinely shapes what we cover.</p>
       <textarea placeholder="e.g. 'How to design small-sided games that actually build decision-making under pressure...'"></textarea>
-      <div class="rationale"><strong>Purpose:</strong> Gold content data. These answers will hand you your best social media hooks verbatim — you'll read these and immediately have 10 carousel post ideas. They also tell you what language your audience uses to describe their problems (use their words, not academic language, in your promotional copy). Share a few anonymised answers with Rob before the event to shape the agenda.</div>
     </div>
 
     <!-- Q12 -->
@@ -580,7 +512,6 @@
       </div>
       <p class="hint">Optional. A name, a club, a county setup — anyone you think should know about this.</p>
       <input type="text" placeholder="Name / club / county board / organisation">
-      <div class="rationale"><strong>Purpose:</strong> Referral engine built into the form. Every warm lead you get here is worth more than any Instagram follower. Frame it as "who should know about this" rather than "refer a friend" — feels more professional and less salesy. These referrals often produce your group buyers.</div>
     </div>
 
     <!-- SUBMIT -->
@@ -590,17 +521,6 @@
       <p class="submit-sub">Your details won't be shared. This event will have a maximum of 35 attendees.</p>
     </div>
 
-  </div>
-
-  <!-- USAGE GUIDE -->
-  <div class="guide-card">
-    <h3>How to Use This in Google Forms</h3>
-    <p>Copy each question above directly into a new Google Form. Set your form theme to match (dark green header if available, or leave default — the content does the work). Make sure you:</p>
-    <p><strong>1. Set the form to "collect email addresses"</strong> automatically via Google Forms settings — this captures emails even if someone doesn't fill in Q2, and gives you a clean export.</p>
-    <p><strong>2. Send privately, not publicly.</strong> Share the link only via direct DM or personal message — never post it publicly. The exclusivity framing in the header only works if it genuinely is private. Say something like: <em>"Sharing this with a small group before we go public — thought of you specifically."</em></p>
-    <p><strong>3. Watch Q7 (intent) closely.</strong> Count "Definitely" + "Very Likely" responses in real time. Once you hit 25+ strong responses from your private list, you have strong evidence the event will sell. That's when you open early bird.</p>
-    <p><strong>4. Use Q11 answers as content.</strong> Export the open text responses — they are your copywriting brief. The exact phrases people use to describe their pain are the phrases you should use in your promotional posts.</p>
-    <p><strong>5. Follow up personally within 48 hours.</strong> Anyone who answers "Definitely" gets a personal DM or message from you — before any ticket link exists. That personal contact is what converts interest into a sale.</p>
   </div>
 
 </div>
