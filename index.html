@@ -310,6 +310,67 @@
     margin-top: 12px;
   }
 
+
+  /* ── BIO CARD ── */
+  .bio-card {
+    background: var(--white);
+    padding: 32px 40px;
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 4px 20px rgba(26,58,42,0.08);
+  }
+  .bio-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .bio-avatar {
+    width: 52px; height: 52px;
+    background: var(--forest);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .bio-name {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--forest);
+  }
+  .bio-title {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .bio-body {
+    font-size: 0.87rem;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+  .bio-body strong { color: var(--forest); }
+  .bio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .bio-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(26,58,42,0.07);
+    color: var(--forest);
+  }
+
   /* ── LEGEND ── */
 
   @media (max-width: 520px) {
@@ -325,10 +386,34 @@
   <div class="header-card">
     <div class="brand-line">Design the Game</div>
     <h1>Rob Gray is Coming<br>to <span>Ireland</span> — Are You In?</h1>
-    <p>We're bringing one of the world's leading skill acquisition researchers and practitioners to Ireland for an exclusive one-day working session. Before we open booking, we want to make sure the right people are in the room.</p>
+    <p>We're bringing one of the world's leading skill acquisition researchers and practitioners to Ireland for an exclusive working session — potentially two days, one for Gaelic Football and one for Hurling. Before we open booking, we want to make sure the right people are in the room.</p>
     <div class="scarcity-bar">
       <div class="scarcity-icon">🔒</div>
-      <p class="scarcity-text"><strong>This form is invitation-only.</strong> We're keeping the event to a maximum of 35 people. Priority places go to those who register interest here before we go public.</p>
+      <p class="scarcity-text"><strong>This form is invitation-only.</strong> Each day is capped at 35 people. Priority places go to those who register interest here before we go public.</p>
+    </div>
+  </div>
+
+  <!-- ROB BIO -->
+  <div class="bio-card">
+    <div class="bio-header">
+      <div class="bio-avatar">RG</div>
+      <div>
+        <div class="bio-name">Dr. Rob Gray</div>
+        <div class="bio-title">Professor · Arizona State University · Perception-Action Podcast</div>
+      </div>
+    </div>
+    <p class="bio-body">Rob Gray is one of the most influential figures in applied skill acquisition in the world today. A Professor of Human Systems Engineering at Arizona State University, he has spent 25+ years researching how athletes learn, adapt, and perform under pressure — and translating that science into practice for coaches, physios, S&C coaches, and performance analysts at the highest levels of sport.</p>
+    <p class="bio-body">He has worked directly with <strong>MLB and NBA franchises</strong> and serves as Skill Acquisition Specialist with the <strong>Boston Red Sox</strong> — bringing ecological dynamics and the constraints-led approach to bear on performance problems that conventional coaching methods have failed to solve.</p>
+    <p class="bio-body">Rob is the author of <strong>four books</strong> on skill acquisition and coaching practice, including the widely-read <em>How We Learn to Move</em> and <em>Learning to Optimise Movement</em> — now essential reading across coaching, rehab, and sport science. His work spans practice design, return to play, athletic development, and the use of data and technology in performance environments.</p>
+    <p class="bio-body">His <strong>Perception-Action Podcast</strong> — launched in 2015 — has become the definitive resource for practitioners bridging research and the field, with over <strong>500 episodes</strong> and <strong>1 million downloads</strong> across coaching, sport science, physiotherapy, S&C, and performance analysis communities worldwide.</p>
+    <div class="bio-tags">
+      <span class="bio-tag">Ecological Dynamics</span>
+      <span class="bio-tag">Constraints-Led Approach</span>
+      <span class="bio-tag">Practice Design</span>
+      <span class="bio-tag">Return to Play</span>
+      <span class="bio-tag">Athletic Development</span>
+      <span class="bio-tag">Performance Analysis</span>
+      <span class="bio-tag">MLB · NBA · Boston Red Sox</span>
     </div>
   </div>
 
@@ -371,6 +456,7 @@
         <label class="option"><input type="radio" name="role"><div class="option-text">Gaelic Football / Hurling Coach<div class="option-sub">Club, county, school, or academy level</div></div></label>
         <label class="option"><input type="radio" name="role"><div class="option-text">Physiotherapist / Rehab Practitioner<div class="option-sub">Sports physio, athletic therapist, or similar</div></div></label>
         <label class="option"><input type="radio" name="role"><div class="option-text">Strength & Conditioning Coach<div class="option-sub">Working with GAA or other field sports</div></div></label>
+        <label class="option"><input type="radio" name="role"><div class="option-text">Video / Data Analyst<div class="option-sub">Performance analysis, GAA or other field sports</div></div></label>
         <label class="option"><input type="radio" name="role"><div class="option-text">Multiple roles<div class="option-sub">E.g. coaching and S&C, or coaching and rehab</div></div></label>
         <label class="option"><input type="radio" name="role"><div class="option-text">Other (please specify below)</div></label>
       </div>
@@ -390,6 +476,21 @@
       </div>
     </div>
 
+    <!-- Q4b: WHICH DAY -->
+    <div class="question">
+      <div class="question-header">
+        <div class="q-num">5</div>
+        <label>We are planning potentially two separate days — which would you attend? <span class="required">*</span></label>
+      </div>
+      <p class="hint">Each day will be sport-specific, with examples and practice design applied directly to that game.</p>
+      <div class="options">
+        <label class="option"><input type="radio" name="day"><div class="option-text">Gaelic Football day<div class="option-sub">Practice design, skill acquisition and performance applied to football</div></div></label>
+        <label class="option"><input type="radio" name="day"><div class="option-text">Hurling day<div class="option-sub">Practice design, skill acquisition and performance applied to hurling</div></div></label>
+        <label class="option"><input type="radio" name="day"><div class="option-text">Both days<div class="option-sub">I'd attend both if possible</div></div></label>
+        <label class="option"><input type="radio" name="day"><div class="option-text">Either — the content matters more than the sport</div></label>
+      </div>
+    </div>
+
     <!-- SECTION: THE EVENT -->
     <div class="section-divider">
       <span class="section-divider-label">The Event</span>
@@ -399,7 +500,7 @@
     <!-- Q5 -->
     <div class="question">
       <div class="question-header">
-        <div class="q-num">5</div>
+        <div class="q-num">6</div>
         <label>Have you come across Rob Gray or the Perception-Action podcast before?</label>
       </div>
       <div class="options">
@@ -412,7 +513,7 @@
     <!-- Q6 -->
     <div class="question">
       <div class="question-header">
-        <div class="q-num">6</div>
+        <div class="q-num">7</div>
         <label>Which of the following topics would be most valuable to you? <span class="required">*</span><br><span style="font-weight:400;font-size:0.8rem;color:var(--muted)">Select all that apply.</span></label>
       </div>
       <div class="options">
@@ -427,7 +528,7 @@
     <!-- Q7 -->
     <div class="question">
       <div class="question-header">
-        <div class="q-num">7</div>
+        <div class="q-num">8</div>
         <label>How likely are you to attend if a place is available? <span class="required">*</span></label>
       </div>
       <div class="options">
@@ -441,7 +542,7 @@
     <!-- Q8 -->
     <div class="question">
       <div class="question-header">
-        <div class="q-num">8</div>
+        <div class="q-num">9</div>
         <label>Are you more likely to be coming as an individual or as part of a group?</label>
       </div>
       <div class="options">
@@ -461,7 +562,7 @@
     <!-- Q9 -->
     <div class="question">
       <div class="question-header">
-        <div class="q-num">9</div>
+        <div class="q-num">10</div>
         <label>For a full-day working session with Rob Gray, what price range feels right to you?</label>
       </div>
       <p class="hint">This is for planning purposes only — no price is confirmed yet.</p>
@@ -477,7 +578,7 @@
     <!-- Q10 -->
     <div class="question">
       <div class="question-header">
-        <div class="q-num">10</div>
+        <div class="q-num">11</div>
         <label>Would employer / county board / club funding affect your decision to attend?</label>
       </div>
       <div class="options">
@@ -497,7 +598,7 @@
     <!-- Q11 -->
     <div class="question">
       <div class="question-header">
-        <div class="q-num">11</div>
+        <div class="q-num">12</div>
         <label>What's the one thing you'd most want to leave the day having figured out?</label>
       </div>
       <p class="hint">Be as specific as you like. This genuinely shapes what we cover.</p>
@@ -507,7 +608,7 @@
     <!-- Q12 -->
     <div class="question">
       <div class="question-header">
-        <div class="q-num">12</div>
+        <div class="q-num">13</div>
         <label>Is there anyone you'd recommend we reach out to who'd benefit from this?</label>
       </div>
       <p class="hint">Optional. A name, a club, a county setup — anyone you think should know about this.</p>
