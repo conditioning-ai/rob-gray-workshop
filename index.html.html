@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rob Gray — Ireland Late November 2026 | Design the Game</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a2a;
+    --forest-mid: #254d38;
+    --forest-light: #2f6347;
+    --gold: #c9a84c;
+    --gold-light: #e0c07a;
+    --gold-pale: #f5e9c8;
+    --cream: #faf6ee;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --white: #ffffff;
+    --border: #ddd8ce;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--forest);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 30px;
+    padding: 6px 16px;
+    margin-bottom: 36px;
+  }
+  .brand-pill span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .brand-pill::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: block;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    margin-bottom: 48px;
+    line-height: 1.8;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .meta-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.8);
+  }
+  .meta-chip strong { color: var(--gold-light); font-weight: 600; }
+  .cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--forest);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 16px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+  }
+  .btn-primary .arrow {
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+  }
+  .btn-primary:hover .arrow { transform: translateX(4px); }
+  .scarcity-note {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .scarcity-note::before {
+    content: '🔒';
+    font-size: 0.75rem;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.25);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  .scroll-hint::after {
+    content: '↓';
+    font-size: 1rem;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ── CONTAINER ── */
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    padding: 80px 0;
+    border-bottom: 1px solid rgba(26,58,42,0.08);
+  }
+  .section:last-of-type { border-bottom: none; }
+  .section-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--forest);
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+  .section-intro {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+
+  /* ── BIO ── */
+  .bio-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .bio-left {}
+  .bio-avatar-block {
+    width: 100px; height: 100px;
+    background: var(--forest);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 20px;
+    border: 3px solid rgba(201,168,76,0.3);
+  }
+  .bio-name {
+    font-family: 'Lora', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 4px;
+  }
+  .bio-title-line {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .bio-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .bio-stat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--white);
+    border-radius: 8px;
+    border-left: 3px solid var(--gold);
+    box-shadow: 0 2px 8px rgba(26,58,42,0.05);
+  }
+  .bio-stat-val {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--forest);
+    min-width: 60px;
+  }
+  .bio-stat-lab {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .bio-right {}
+  .bio-body {
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .bio-body strong { color: var(--forest); font-weight: 600; }
+  .bio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .bio-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(26,58,42,0.07);
+    color: var(--forest);
+  }
+
+  /* ── BOOKS ── */
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .book-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 22px 18px;
+    box-shadow: 0 2px 10px rgba(26,58,42,0.06);
+    border-top: 3px solid var(--gold);
+  }
+  .book-icon { font-size: 1.4rem; margin-bottom: 10px; display: block; }
+  .book-title {
+    font-family: 'Lora', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--forest);
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .book-desc {
+    font-size: 0.76rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── WHO IS IT FOR ── */
+  .tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .track-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px 22px;
+    box-shadow: 0 2px 12px rgba(26,58,42,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+  .track-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+  .track-icon { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+  .track-title {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 8px;
+  }
+  .track-hook {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .track-body {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── EVENT DETAILS ── */
+  .event-box {
+    background: var(--forest);
+    border-radius: 16px;
+    padding: 48px 40px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .event-box::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+  }
+  .event-box-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .event-box h3 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .event-box h3 span { color: var(--gold); }
+  .event-box p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 32px;
+  }
+  .event-days {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .event-day {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .event-day-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .event-day-title {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .event-day-sub {
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+  .scarcity-strip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 28px;
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.8);
+  }
+  .scarcity-strip strong { color: var(--gold-light); }
+  .btn-primary-lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--gold);
+    color: var(--forest);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 18px 40px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .btn-primary-lg:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(201,168,76,0.3);
+  }
+  .btn-sub {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 12px;
+  }
+
+  /* ── WHAT YOU LEARN ── */
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .outcome-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(26,58,42,0.05);
+  }
+  .outcome-icon {
+    width: 36px; height: 36px;
+    background: rgba(26,58,42,0.07);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .outcome-text {
+    font-size: 0.85rem;
+    color: var(--text);
+    line-height: 1.55;
+    font-weight: 500;
+  }
+
+  /* ── FOOTER CTA ── */
+  .footer-cta {
+    background: var(--forest);
+    padding: 80px 24px;
+    text-align: center;
+  }
+  .footer-cta p.overline {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .footer-cta h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .footer-cta p.body {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 480px;
+    margin: 0 auto 36px;
+    line-height: 1.8;
+  }
+  .footer-note {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 14px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #0f2318;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .footer p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer strong { color: var(--gold); }
+
+  @media (max-width: 640px) {
+    .bio-wrap { grid-template-columns: 1fr; }
+    .event-days { grid-template-columns: 1fr; }
+    .outcomes-grid { grid-template-columns: 1fr; }
+    .event-box { padding: 32px 22px; }
+    .hero { padding: 60px 20px 100px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="brand-pill"><span>Design the Game · Ireland 2026</span></div>
+    <h1>The World's Leading<br>Skill Acquisition Expert<br>is Coming to <em>Ireland</em></h1>
+    <p class="hero-sub">Dr. Rob Gray — researcher, author, and host of the Perception-Action podcast — is coming to Ireland for an exclusive working session applied directly to Gaelic Games.</p>
+    <div class="hero-meta">
+      <div class="meta-chip">📅 <strong>Late November 2026</strong> · Ireland</div>
+      <div class="meta-chip">🏐 <strong>Gaelic Football</strong> Day</div>
+      <div class="meta-chip">🏑 <strong>Hurling</strong> Day</div>
+      <div class="meta-chip">👥 <strong>35 seats</strong> per day</div>
+    </div>
+    <div class="cta-group">
+      <a href="https://forms.gle/9n1WHGGr3WMR1c7N6" target="_blank" class="btn-primary">
+        Register Your Interest <span class="arrow">→</span>
+      </a>
+      <span class="scarcity-note">Invitation only — priority access before public launch</span>
+    </div>
+  </div>
+  <div class="scroll-hint">scroll</div>
+</div>
+
+<!-- ── WHO IS ROB ── -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">About the Speaker</p>
+    <div class="bio-wrap">
+      <div class="bio-left">
+        <div class="bio-avatar-block">RG</div>
+        <div class="bio-name">Dr. Rob Gray</div>
+        <div class="bio-title-line">Professor of Human Systems Engineering<br>Arizona State University</div>
+        <div class="bio-stats">
+          <div class="bio-stat">
+            <div class="bio-stat-val">25+</div>
+            <div class="bio-stat-lab">Years researching skill acquisition and motor learning</div>
+          </div>
+          <div class="bio-stat">
+            <div class="bio-stat-val">500+</div>
+            <div class="bio-stat-lab">Podcast episodes on the Perception-Action Podcast</div>
+          </div>
+          <div class="bio-stat">
+            <div class="bio-stat-val">1M+</div>
+            <div class="bio-stat-lab">Downloads across coaching, physio, S&C and analysis</div>
+          </div>
+          <div class="bio-stat">
+            <div class="bio-stat-val">4</div>
+            <div class="bio-stat-lab">Books on skill acquisition and coaching practice</div>
+          </div>
+        </div>
+      </div>
+      <div class="bio-right">
+        <p class="bio-body">Rob Gray is one of the most influential figures in applied skill acquisition in the world today. He has spent over 25 years researching how athletes learn, adapt, and perform under pressure — and translating that science into practice at the highest levels of sport.</p>
+        <p class="bio-body">He has worked directly with <strong>MLB and NBA franchises</strong> and currently serves as Skill Acquisition Specialist with the <strong>Boston Red Sox</strong> — bringing ecological dynamics and the constraints-led approach to bear on performance problems that conventional coaching has failed to solve.</p>
+        <p class="bio-body">His podcast — the <strong>Perception-Action Podcast</strong> — is the most widely listened-to resource in the global skill acquisition community. With over 500 episodes and 1 million downloads, it is a reference point for serious practitioners across coaching, physiotherapy, S&C, and performance analysis.</p>
+        <p class="bio-body">What sets Rob apart from other researchers is his <strong>rare ability to make complex science immediately usable</strong>. He has a gift for stripping away jargon and presenting ideas in ways that coaches, physios, and practitioners can apply the very next session. This is not a theory-heavy academic workshop — it is a practical, hands-on working day built around implementation. People leave with tools, not just ideas.</p>
+        <p class="bio-body">Rob's four books — including <em>How We Learn to Move</em> and <em>Learning to Optimise Movement</em> — are now essential reading across sport science and coaching internationally. His work covers practice design, return to play, athletic development, and the application of data and video in performance environments.</p>
+        <div class="bio-tags">
+          <span class="bio-tag">Ecological Dynamics</span>
+          <span class="bio-tag">Constraints-Led Approach</span>
+          <span class="bio-tag">Practice Design</span>
+          <span class="bio-tag">Return to Play</span>
+          <span class="bio-tag">Athletic Development</span>
+          <span class="bio-tag">Performance Analysis</span>
+          <span class="bio-tag">MLB</span>
+          <span class="bio-tag">NBA</span>
+          <span class="bio-tag">Boston Red Sox</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKS ── -->
+<section class="section" style="background: var(--white);">
+  <div class="container">
+    <p class="section-label">The Books</p>
+    <h2 class="section-title">Essential Reading — Now Coming to Life</h2>
+    <p class="section-intro">Rob's books have changed how thousands of coaches, physios, and S&C coaches think about skill. This event is a chance to work through those ideas in person, applied to your sport.</p>
+    <div class="books-grid">
+      <div class="book-card">
+        <span class="book-icon">📗</span>
+        <div class="book-title">How We Learn to Move</div>
+        <div class="book-desc">The foundational text on ecological dynamics and skill acquisition — now a standard reference across sport science globally.</div>
+      </div>
+      <div class="book-card">
+        <span class="book-icon">📘</span>
+        <div class="book-title">Learning to Optimise Movement</div>
+        <div class="book-desc">The follow-up — deeper into how practitioners can design environments that accelerate learning and build adaptability.</div>
+      </div>
+      <div class="book-card">
+        <span class="book-icon">📙</span>
+        <div class="book-title">Becoming an Ecological Coach</div>
+        <div class="book-desc">How to coach in a manner consistent with evidence-based skill acquisition theory — practical, applied, and direct.</div>
+      </div>
+      <div class="book-card">
+        <span class="book-icon">📕</span>
+        <div class="book-title">An Advanced Ecological Approach</div>
+        <div class="book-desc">The most recent release — graduate-level material on coordination dynamics, variability, and applied CLA at elite level.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO IS IT FOR ── -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">Who Should Attend</p>
+    <h2 class="section-title">Built for Five Types of Practitioner</h2>
+    <p class="section-intro">Each group shares the same underlying problem — practice and training environments that don't match the demands of the game. Rob addresses that from every professional angle.</p>
+    <div class="tracks-grid">
+      <div class="track-card">
+        <span class="track-icon">🏐</span>
+        <div class="track-title">GAA Coaches</div>
+        <div class="track-hook">"You're designing practice wrong — and the game is proving it."</div>
+        <div class="track-body">Constraints-led practice design, representative learning environments, and how to build decision-making under pressure — applied to Gaelic Football and Hurling.</div>
+      </div>
+      <div class="track-card">
+        <span class="track-icon">🩺</span>
+        <div class="track-title">Physios & Rehab Practitioners</div>
+        <div class="track-hook">"Getting a player fit isn't the same as getting them ready to play."</div>
+        <div class="track-body">An ecological framework for return to play — rebuilding skill, decision-making, and game-readiness, not just movement capacity.</div>
+      </div>
+      <div class="track-card">
+        <span class="track-icon">💪</span>
+        <div class="track-title">S&C Coaches</div>
+        <div class="track-hook">"Strength in the gym doesn't guarantee strength in the game."</div>
+        <div class="track-body">How constraints thinking bridges athletic development and skill acquisition — making gym work transfer to on-field performance.</div>
+      </div>
+      <div class="track-card">
+        <span class="track-icon">📊</span>
+        <div class="track-title">Video & Data Analysts</div>
+        <div class="track-hook">"Data tells you what happened — this tells you why it matters."</div>
+        <div class="track-body">How ecological dynamics reframes what analysts should be measuring, and how video and data can be used to design better training environments.</div>
+      </div>
+      <div class="track-card">
+        <span class="track-icon">🎓</span>
+        <div class="track-title">Sport Scientists</div>
+        <div class="track-hook">"The research is there — now learn how to use it."</div>
+        <div class="track-body">Graduate-level applied skill acquisition with one of the field's most productive researchers. Direct access to the thinking behind the work.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT YOU'LL LEAVE WITH ── -->
+<section class="section" style="background: var(--white);">
+  <div class="container">
+    <p class="section-label">What You'll Leave With</p>
+    <h2 class="section-title">Practical. Principled. Applied to Gaelic Games.</h2>
+    <p class="section-intro">This is not a lecture series. It is a working session. You will leave with frameworks you can apply the following week.</p>
+    <div class="outcomes-grid">
+      <div class="outcome-item">
+        <div class="outcome-icon">🎯</div>
+        <div class="outcome-text">A principled framework for designing practice that actually transfers to match performance</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">🔄</div>
+        <div class="outcome-text">A new approach to return to play that rebuilds the whole player — not just physical capacity</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">📐</div>
+        <div class="outcome-text">Tools for manipulating task, environment, and individual constraints to accelerate learning</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">🧠</div>
+        <div class="outcome-text">Understanding of how perception and action are coupled — and what that means for how you coach</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">📈</div>
+        <div class="outcome-text">A reframe of what data and video analysis should be capturing to inform practice design</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">🤝</div>
+        <div class="outcome-text">Direct access to Rob Gray for questions on your specific context, sport, and challenges</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EVENT DETAILS ── -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">The Event</p>
+    <h2 class="section-title">Two Days. Two Sports. 35 Seats Each.</h2>
+    <p class="section-intro">We are planning two sport-specific days so the content, examples, and practice design work is directly relevant to your game. Each day is independent — attend one or both.</p>
+    <div class="event-box">
+      <p class="event-box-label">Late November 2026 · Ireland</p>
+      <h3>An Exclusive Working Session<br>with <span>Dr. Rob Gray</span></h3>
+      <p>One of the most credible voices in global skill acquisition, in Ireland, working through the challenges of Gaelic Games with a small group of serious practitioners. This level of access does not exist anywhere else in Ireland.</p>
+      <div class="event-days">
+        <div class="event-day">
+          <div class="event-day-label">Day One</div>
+          <div class="event-day-title">Gaelic Football</div>
+          <div class="event-day-sub">Practice design, skill acquisition, rehab and athletic development — applied to football</div>
+        </div>
+        <div class="event-day">
+          <div class="event-day-label">Day Two</div>
+          <div class="event-day-title">Hurling</div>
+          <div class="event-day-sub">Practice design, skill acquisition, rehab and athletic development — applied to hurling</div>
+        </div>
+      </div>
+      <div class="scarcity-strip">
+        🔒 <span><strong>Maximum 35 people per day.</strong> This form is invitation-only — priority access before we open publicly.</span>
+      </div>
+      <a href="https://forms.gle/9n1WHGGr3WMR1c7N6" target="_blank" class="btn-primary-lg">
+        Register Your Interest →
+      </a>
+      <p class="btn-sub">No commitment required. We'll be in touch personally with booking details.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER CTA ── -->
+<div class="footer-cta">
+  <div class="container">
+    <p class="overline">Don't Miss This</p>
+    <h2>This Is a Rare Opportunity.<br>Don't Let It Pass.</h2>
+    <p class="body">Rob Gray does not regularly travel to Ireland. This is a one-off event for a small group of serious practitioners. Register your interest now to secure priority access before we open publicly.</p>
+    <a href="https://forms.gle/9n1WHGGr3WMR1c7N6" target="_blank" class="btn-primary-lg">
+      Register Your Interest →
+    </a>
+    <p class="footer-note">35 seats per day · Invitation only · Late November 2026 · Ireland</p>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  <p><strong>Design the Game</strong> · Rob Gray Ireland 2026 · This page is shared privately before public launch.</p>
+</div>
+
+</body>
+</html>
